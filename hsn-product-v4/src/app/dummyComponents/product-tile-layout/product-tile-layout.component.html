@@ -1,0 +1,8 @@
+<div *ngFor="let product of options.products|sortPipe: 'name': options.direction | searchPipe: ['name']: options.searchToken" class="product">
+    <img src="{{product.imageUrl}}" width="50" height="50">
+    <h2>{{product.name}}</h2>
+    <h4>${{product.price}}</h4>
+    <button class="btn btn-default" (click)="reportAddToShoppingCart(product)">
+        <i class="	glyphicon glyphicon-shopping-cart"></i>
+    </button>
+</div>

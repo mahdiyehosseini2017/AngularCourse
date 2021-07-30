@@ -1,0 +1,16 @@
+<app-product-navbar [options]="navbarOption" (directionChanged)="navbarOption.direction = $event"
+    (layoutChanged)="navbarOption.layout = $event" (searchTokenChanged)="navbarOption.searchToken= $event">
+</app-product-navbar>
+
+<app-product-list-layout *ngIf="navbarOption.layout=='list'"
+    [options]="{direction: navbarOption.direction, products: products, searchToken: navbarOption.searchToken }"
+    (addToShoppingCart)="addToCart($event)">
+</app-product-list-layout>
+
+<app-product-tile-layout *ngIf="navbarOption.layout=='tile'"
+    [options]="{direction: navbarOption.direction, products: products, searchToken: navbarOption.searchToken }"
+    (addToShoppingCart)="addToCart($event)"></app-product-tile-layout>
+
+<app-product-shopping-cart-list *ngIf="getShoppingCart().length>0" [shoppingCartList]="getShoppingCart()"
+    [totalPrice]="getShoppingCartTotalPrice()" (removeFromCart)="removeFromCart($event)">
+</app-product-shopping-cart-list>

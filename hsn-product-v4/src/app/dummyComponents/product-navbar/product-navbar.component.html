@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-4">
+        Layout:
+        <button class="btn btn-default" (click)="reportLayoutChanged()"
+            [ngClass]="{'active': options.layout == 'list'}">
+            <i class="glyphicon glyphicon-th-list"></i>
+        </button>
+        <button class="btn btn-default" (click)="reportLayoutChanged()"
+            [ngClass]="{'active': options.layout == 'tile'}">
+            <i class="glyphicon glyphicon-th-large"></i>
+        </button>
+    </div>
+    <div class="col-md-4">
+        Sort:
+        <button class="btn btn-default" (click)="reportDirectionChanged()"
+            [ngClass]="{'active': options.direction == 'asc'}">
+            <i class="glyphicon glyphicon-sort-by-alphabet"></i>
+        </button>
+        <button class="btn btn-default" (click)="reportDirectionChanged()"
+            [ngClass]="{'active': options.direction == 'desc'}">
+            <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>
+        </button>
+    </div>
+    <div class="col-md-4">
+        <input placeholder="search" [(ngModel)]="options.searchToken" (keyup)="reportSearchTokenChanged($event)">
+    </div>
+</div>
