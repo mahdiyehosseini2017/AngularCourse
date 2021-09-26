@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
     this.shoppingCartService.remove(product);
   }
 
-  getShoppingCartTotalPrice(): number {
+  get shoppingCartTotalPrice(){
     return this.shoppingCartService.getTotalPrice();
   }
 

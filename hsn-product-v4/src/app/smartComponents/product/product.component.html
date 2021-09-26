@@ -12,5 +12,5 @@
     (addToShoppingCart)="addToCart($event)"></app-product-tile-layout>
 
 <app-product-shopping-cart-list *ngIf="getShoppingCart().length>0" [shoppingCartList]="getShoppingCart()"
-    [totalPrice]="getShoppingCartTotalPrice()" (removeFromCart)="removeFromCart($event)">
+    [totalPrice]="shoppingCartTotalPrice" (removeFromCart)="removeFromCart($event)">
 </app-product-shopping-cart-list>
