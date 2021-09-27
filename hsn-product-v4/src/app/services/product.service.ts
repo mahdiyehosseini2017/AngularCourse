@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { ProductModel } from "../models/product.model";
 import { LogService } from "./log/log.service";
 
 @Injectable()
 export class ProductService {
-    constructor(private logService: LogService) {
+    constructor(@Inject('LogService') private logService: LogService) {
 
     }
 

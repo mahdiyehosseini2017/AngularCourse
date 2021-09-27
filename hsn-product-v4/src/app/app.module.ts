@@ -32,7 +32,7 @@ import { SearchPipe } from './tools/pipes/search.pipe';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [{ provide: LogService, useClass: DevelopLogService }, ProductService, ShoppingCartService],
+  providers: [{ provide: 'LogService', useClass: DevelopLogService }, ProductService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
