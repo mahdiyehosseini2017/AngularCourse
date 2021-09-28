@@ -1,6 +1,6 @@
 import { LogService } from "./log.service";
 
-export class ReleaseLogService implements LogService {
+export class ReleaseLogService extends LogService {
     saveLog() {
         console.log('this is release log service');
     }

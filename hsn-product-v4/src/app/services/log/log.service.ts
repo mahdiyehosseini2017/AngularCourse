@@ -1,3 +1,3 @@
-export interface LogService {
-    saveLog();
+export abstract class LogService {
+    abstract saveLog();
 }
