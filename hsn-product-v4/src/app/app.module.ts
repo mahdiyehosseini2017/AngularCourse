@@ -16,6 +16,7 @@ import { ShoppingCartService } from './services/shopping-cart.service';
 import { SortPipe } from './tools/pipes/sort.pipe';
 import { SearchPipe } from './tools/pipes/search.pipe';
 import { createLogService } from './services/log/log.factory';
+import { WriteLogService } from './services/log/write-log.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { createLogService } from './services/log/log.factory';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [{ provide: LogService, useFactory: createLogService }, ProductService, ShoppingCartService],
+  providers: [{ provide: LogService, useFactory: createLogService, deps: [WriteLogService] }, ProductService, ShoppingCartService, WriteLogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
