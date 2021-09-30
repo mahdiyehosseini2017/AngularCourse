@@ -23,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
   get id(): number {
     let i = 0;
     this.route.params.subscribe(params => {
-      i = +params['id'];
+      i = Number(params['id']);
     });
 
     return i;
