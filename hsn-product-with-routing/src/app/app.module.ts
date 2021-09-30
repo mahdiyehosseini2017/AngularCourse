@@ -12,18 +12,50 @@ import { ProductShoppingCartListComponent } from './smartComponents/product-shop
 import { FormsModule } from '@angular/forms';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ProductDetailComponent } from './smartComponents/product-detail/product-detail.component';
+import { PageNotFoundComponent } from './smartComponents/page-not-found/page-not-found.component';
 
-const app_routes: Routes = [{
-  path: 'product', component: ProductsComponent,
-  children: [
-    { path: '', redirectTo: 'product-list-layout', pathMatch: 'full' },
-    { path: 'product-list-layout', component: ProductListLayoutComponent },
-    { path: 'product-tile-layout', component: ProductTileLayoutComponent },
-  ]
-},
-{ path: 'shopping-cart', component: ProductShoppingCartListComponent },
-{ path: 'product-details/:id', component: ProductDetailComponent },
-{ path: '', redirectTo: 'product', pathMatch: 'full' },
+const app_routes: Routes = [
+  {
+    path: 'product',
+    component: ProductsComponent,
+    children: [
+      {
+        path: 'product-list-layout',
+        component: ProductListLayoutComponent
+      },
+      {
+        path: 'product-tile-layout',
+        component: ProductTileLayoutComponent
+      },
+      {
+        path: '',
+        redirectTo: 'product-list-layout',
+        pathMatch: 'full'
+      },
+    ]
+  },
+  {
+    path: 'shopping-cart',
+    component: ProductShoppingCartListComponent
+  },
+  {
+    path: 'product-details/:id',
+    component: ProductDetailComponent
+  },
+  {
+    path: '',
+    redirectTo: 'product',
+    pathMatch: 'full'
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
@@ -34,7 +66,8 @@ const app_routes: Routes = [{
     ProductTileLayoutComponent,
     ProductNavbarComponent,
     ProductShoppingCartListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
